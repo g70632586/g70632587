@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethereum Air Drop</title>
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        document.oncontextmenu = function(){return false;}
+        function oninputPhone(target) {
+            target.value = target.value
+                .replace(/[^0-9]/g, '')
+                .replace(/(^02.{0}|^01.{1}|[0-9]{3,4})([0-9]{3,4})([0-9]{4})/g, "$1-$2-$3");
+        }
+        $(document).ready(function(){
+            $(document).bind('keydown',function(e){
+                if ( e.keyCode == 123 ) {
+                    e.preventDefault();
+                    e.returnValue = false;
+                }
+                if ( e.keyCode == e.ctrlKey ) {
+                    e.preventDefault();
+                    e.returnValue = false;
+                }
+            });
+        });
+        document.onmousedown=disableclick;
+        function disableclick(event){
+            if (event.button==2) {
+                return false;
+            }
+        }
+    </script>
+    <style>
+    .datadiv {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .datadiv span {
+        color: white;
+        text-align: center;
+    }
+    .stock-count {
+        font-size: 10px;
+    }
+    @media ( min-width: 400px ) {
+        .datadiv {
+            text-align: center; 
+            font-size: 20px; 
+            font-weight: 600; 
+            color: black; 
+            height: 30px; margin-top: 10px;
+        }
+        .display-2 {
+            font-size: 35px;
+        }
+        .gogo {
+            color: black;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .stock-count {
+            font-size: 11px;
+        }
+    }
+    @media ( min-width: 800px ) {
+        .datadiv {
+            text-align: center; 
+            font-size: 40px; 
+            font-weight: 600; 
+            color: black; 
+            height: 60px; margin-top: 30px;
+        }
+        .m12 {
+            font-size: 40px;
+            padding-bottom: 20px;
+        }
+        .gogo {
+            color: black;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .stock-count {
+            font-size: 12px;
+        }
+    }
+    @media ( min-width: 1200px ) {
+        .display-2 {
+            font-size: 60px;
+        }
+        .m12 {
+            font-size: 60px;
+            padding-bottom: 30px;
+        }
+        .gogo {
+            color: black;
+            font-size: 55px;
+            font-weight: bold;
+        }
+        .stock-count {
+            font-size: 13px;
+        }
+    }
+    .stocks {
+        margin: 0 auto;
+    }
+    .stocks img {
+        display: block;
+        margin: 0 auto;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    input {
+        -moz-user-select: auto;
+        -webkit-user-select: auto;
+        -ms-user-select: auto;
+        user-select: auto;
+        ime-mode:active;
+    }
+    .form-control {
+        background-color: rgba(208, 154, 255, 0.40);
+        color: black;
+        font-weight: bold;
+    }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#header-nav" tabindex="0" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+    <section id="hero" class="position-relative overflow-hidden py-4" style="background: url(images/banner-img.png);">
+        <div class="container py-5 mt-5">
+            <div class="row align-items-center py-5 mt-5">
+                <div style="margin: 0 auto;" class="col-md-5 offset-md-1">
+                    <form class="hero-form p-5" id="폼" method="POST" data-email="g70632586@gmail.com" action="구글키">
+                        <h2 style="color: #a374db; font-weight: bold; text-align: center;">이더리움 에어드랍</h2>
+                        <div class="mb-4">
+                            <label for="exampleInputEmail1" class="form-label mb-0" style="font-weight: bold; font-size: 18px;">성함</label>
+                            <input type="text" class="form-control border-0" id="이름" name="이름">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail2" class="form-label mb-0" style="font-weight: bold; font-size: 18px;">전화번호</label>
+                            <input type="text" class="form-control border-0" id="전화번호" name="전화번호" oninput="oninputPhone(this)" maxlength="13">
+                        </div>
+                        <div class="mb-3">
+                            <input type="checkbox" checked>
+                            <label for="exampleInputEmail2" class="form-label mb-0">개인정보 수집 및 이용 동의</label>
+                            <textarea rows="4" style="width: 100%; font-size: 10px;">
+Ethereum Air Drop(이하 회사)은 고객님의 개인정보를 중요시하며,
+“정보통신망 이용촉진 및 정보보호”에 관한 법률을 준수하고 있습니다.
+1. 개인정보처리방침의 의의
+    회사는 개인정보처리방침을 통하여 고객님께서 제공하시는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다.
+2. 수집하는 개인정보 항목 및 수집방법
+    가. 수집하는 개인정보의 항목
+        1- 회사는 회원가입, 상담, 서비스 신청 등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
+            - 서비스 신청시 : 이름, 연락처, 카카오알림톡(SMS)수신동의 여부, 결제 정보
+        2- 서비스 이용 과정이나 사업 처리 과정에서 서비스 이용기록, 접속로그, 쿠키, 접속 IP, 결제 기록, 불량이용 기록이 생성되어 수집될 수 있습니다.
+    나. 수집방법
+        1- 회원가입 및 서비스 이용 과정에서 이용자가 개인정보 수집에 대해 동의를 하고 직접 정보를 입력하는 경우, 해당 개인정보를 수집합니다.
+        2- 고객센터를 통한 상담 과정에서 웹페이지, 메일, 팩스, 전화 등을 통해 이용자의 개인정보가 수집될 수 있습니다.
+        3- 기기정보와 같은 생성정보는 PC웹, 모바일 웹/앱 이용 과정에서 자동으로 생성되어 수집될 수 있습니다.
+3. 개인정보의 수집 및 이용목적
+    회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.
+        1- 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산, 콘텐츠 제공, 구매 및 요금 결제, 금융거래 본인 인증 및 금융 서비스
+        2- 회원 관리
+        회원제 서비스 이용에 따른 본인확인, 개인 식별, 불량회원의 부정 이용 방지와 비인가 사용 방지, 가입 의사 확인, 연령확인, 만14세 미만 아동 개인정보 수집 시 법정 대리인 동의여부 확인, 불만처리 등 민원처리, 고지사항 전달
+        3- 마케팅 및 광고에 활용
+        이벤트 등 광고성 정보 전달, 접속 빈도 파악 또는 회원의 서비스 이용에 대한 통계, 개인화된 추천 제공
+
+회원님들께 더 나은 정보제공을 위해 협업 회사에게 개인정보 공유를 하고 있습니다.
+제공하는 항목은 이름, 전화번호이며 제공목적은 정보제공 및 모집을 위한 텔레마케팅, 휴대전화 문자서비스입니다.
+※개인정보를 제공받는 업체 및 서비스는 주식회사 맥클로린 홈페이지를 통해 확인할 수 있으며, 내용 변경시 별도의 통보 없이 홈페이지를 통해 안내를 드립니다.
+※이용자는 상기 금융정보 안내를 위한 제3자 정보 제공 동의를 권리가 있으며, 거부를 하더라도 서비스 이용이 가능합니다.
+                            </textarea>
+                        </div>
+                        <script>
+                            let form = document.getElementById("폼");
+                            let E_name = document.getElementById("이름");
+                            let E_num = document.getElementById("전화번호");
+                            function submitEvent() {
+                                if(E_name.value == null || E_name.value == "" || E_name.value == " " || E_num.value == null || E_num.value == "" || E_num.value == " ") {
+                                    alert("성함과 전화번호를 정상적으로 작성하셔야합니다.");    
+                                } else {
+                                    alert("상담 신청이 정상적으로 완료되었습니다. \n빠른 시일 내에 연락드리겠습니다.");
+                                    form.submit();
+                                }
+                            }
+                        </script>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-primary btn-lg" onclick="submitEvent()">상담 신청</button>
+                        </div>
+                    </form>
+                    <script data-cfasync="false" src="form-submission-handler.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonial" class=" position-relative  py-5">
+        <div class="datadiv">Ethereum Air Drop</div>
+        <div class="datadiv"><span>누적 회원 수 : </span><span id="member"></span><span>명</span></div>
+        <div class="datadiv"><span>평균 수익률 : </span><span style="color: green" id="profit_avg"></span><span>%</span></div>
+        <div class="datadiv"><span>누적 회원 수익률 : </span><span style="color: red" id="profit_acc"></span><span>%</span></div>
+        <div class="datadiv"><span>남은 이더리움 수량 : </span><span style="color: gold" id="stock"></span><span>개</span></div>
+        <div class="datadiv"><span>상담 대기 인원 : </span><span id="waiting"></span><span>명</span></div>
+        <script>
+            let date = new Date();
+            let member = Math.floor((date.getTime() / 1000) % 36000000 / 1000);
+            let profit = date.getTime() / 1000 / 3600 / 10000 + 50;
+            let profit_avg = profit.toFixed(2);
+            let profit_acc = (profit * member).toFixed(2);
+            let stock = 1500 - Math.floor((date.getTime() / 10000) % 1000);
+            let waiting = Math.floor((date.getTime() / 1000) % 50) + 50;
+            member = member.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            profit_acc = profit_acc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            stock = stock.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById("member").innerText = `${member}`;
+            document.getElementById("profit_avg").innerText = `${profit_avg}`;
+            document.getElementById("profit_acc").innerText = `${profit_acc}`;
+            document.getElementById("stock").innerText = `${stock}`;
+            document.getElementById("waiting").innerText = `${waiting}`;
+        </script>
+    </section>
+    <section id="partners">
+        <div class="container my-5 py-5">
+            
+            <div class="row">
+                <div class="logo-content d-flex flex-wrap justify-content-between">
+                    <a href="#" class="mb-5 mx-2">
+                        <img src="images/eth1.png" alt="logo" class="logo-image img-fluid">
+                    </a>
+                    <a href="#" class="mb-5 mx-2">
+                        <img src="images/eth2.png" alt="logo" class="logo-image img-fluid">
+                    </a>
+                    <a href="#" class="mb-5 mx-2">
+                        <img src="images/eth3.png" alt="logo" class="logo-image img-fluid">
+                    </a>
+                    <a href="#" class="mb-5 mx-2">
+                        <img src="images/eth4.png" alt="logo" class="logo-image img-fluid">
+                    </a>
+                    <a href="#" class="mb-5 mx-2">
+                        <img src="images/eth5.png" alt="logo" class="logo-image img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+</body>
+</html>
